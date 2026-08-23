@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://7unpp0ga6kud"]
+
+[ext_resource type="Script" uid="uid://y4dvpjkf73hq" path="res://scripts/interaction/player.gd" id="1_b0kkn"]
+[ext_resource type="PackedScene" uid="uid://bdsk14ap5cwgt" path="res://assets/KayKit_CharacterAnimations/Mannequin Character/Mannequin_Medium.glb" id="1_merdl"]
+
+[node name="Player" type="Node3D" unique_id=566715345]
+script = ExtResource("1_b0kkn")
+
+[node name="Mannequin_Medium" parent="." unique_id=747286442 instance=ExtResource("1_merdl")]

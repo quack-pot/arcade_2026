@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckjse7tp6y3aq"]
+
+[ext_resource type="Environment" uid="uid://d3ju86wxmw7by" path="res://assets/environment/game_environment.tres" id="1_yqjtg"]
+[ext_resource type="MeshLibrary" uid="uid://ci7jheu0n2nuk" path="res://assets/all_models.tres" id="2_lnu2h"]
+
+[node name="Game" type="Node3D" unique_id=854220991]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=819751708]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 20, 0)
+environment = ExtResource("1_yqjtg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1945731898]
+environment = ExtResource("1_yqjtg")
+
+[node name="Room" type="Node3D" parent="." unique_id=1411379459]
+
+[node name="GridMap" type="GridMap" parent="Room" unique_id=1528906476]
+mesh_library = ExtResource("2_lnu2h")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 65535, 289, 0, 0, 289, 1, 65535, 1048855, 1, 0, 1048861, 1, 1, 1048855, 0, 1, 289, 65535, 1, 289, 65535, 0, 289, 65535, 65535, 289, 65534, 65535, 289, 65534, 0, 289, 65534, 1, 289, 65534, 2, 289, 65535, 2, 289, 0, 2, 289, 1, 2, 1048855, 2, 2, 1048855, 2, 1, 1048855, 2, 0, 1048855, 2, 65535, 1048855, 65534, 65534, 289, 65534, 65533, 289, 65535, 65533, 289, 0, 65533, 289, 1, 65533, 1048855, 2, 65533, 1048856, 2, 65534, 1048855, 1, 65534, 1048855, 0, 65534, 289, 65535, 65534, 289, 65533, 65533, 289, 65533, 65534, 289, 65533, 65535, 289, 65533, 0, 289, 65533, 1, 289, 65533, 2, 289, 65533, 65532, 355, 65534, 65532, 355, 65535, 65532, 357, 0, 65532, 355, 1, 65532, 355, 2, 65532, 355, 3, 65532, 360, 65532, 65532, 1048936, 65532, 65533, 1048809, 65532, 65534, 1048696, 65532, 65535, 1048827, 65532, 0, 1048833, 65532, 1, 1048907, 65532, 2, 1048916)
+}
+
+[node name="GridMap2" type="GridMap" parent="Room" unique_id=1333179591]
+mesh_library = ExtResource("2_lnu2h")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65529, 65529, 1048867, 65530, 65529, 1048867, 65531, 65529, 1048867, 65532, 65529, 1048867, 65533, 65529, 291, 65534, 65529, 281, 65535, 65529, 281, 0, 65529, 281, 1, 65529, 281)
+}
