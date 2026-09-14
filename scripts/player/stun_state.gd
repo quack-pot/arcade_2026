@@ -1,7 +1,5 @@
-class_name State
-extends Node
-
-signal transition_signal(from: State, to: String)
+class_name StunState
+extends State
 
 func enter() -> void:
 	pass

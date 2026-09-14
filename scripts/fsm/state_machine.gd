@@ -1,16 +1,33 @@
 class_name StateMachine
 extends Node
 
-var active_state: State
-var states: Dictionary[String, State] = {}
+var _active_state: State
+var _states: Dictionary[String, State]
 
-func _ready() -> void:
-	await owner.ready
+func _init(
+	states: Dictionary[String, State],
+	initial_state_key: String,
+) -> void:
+	_states = states
 	
-	active_state.enter()
+	for key in _states:
+		_states[key].transition_signal.connect(_on_transition)
+	
+	_active_state = _states.get(initial_state_key)
+	assert(_active_state != null, "Initial state does not exist with key!")
+	
+	_active_state.enter()
 
 func _process(delta: float) -> void:
-	active_state.process(delta)
+	_active_state.process(delta)
 
 func _physics_process(delta: float) -> void:
-	active_state.physics_process(delta)
+	_active_state.physics_process(delta)
+
+func _on_transition(from: State, to: String) -> void:
+	var next_state: State = _states.get(to)
+	assert(next_state != null, "Next state does not exist with key!")
+	
+	_active_state.exit()
+	_active_state = next_state
+	_active_state.enter()

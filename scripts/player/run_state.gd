@@ -1,7 +1,5 @@
-class_name State
-extends Node
-
-signal transition_signal(from: State, to: String)
+class_name RunState
+extends State
 
 func enter() -> void:
 	pass
@@ -10,7 +8,7 @@ func exit() -> void:
 	pass
 
 func process(delta_time: float) -> void:
-	pass
+	var move: Vector2 = Input.get_vector("Left", "Right", "Down", "Up")
 
 func physics_process(delta_time: float) -> void:
 	pass
