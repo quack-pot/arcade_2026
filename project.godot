@@ -14,9 +14,12 @@ config/name="Arcade 2026"
 run/main_scene="uid://bee8f3on8m0e4"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+HighScoreManager="*uid://cw5b11hvws6pj"
+
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

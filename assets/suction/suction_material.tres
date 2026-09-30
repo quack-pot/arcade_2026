@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://h6fnt4drupeo"]
+
+[ext_resource type="Shader" uid="uid://djb03fs3hq4mj" path="res://assets/suction/suction_shader.gdshader" id="1_8pnql"]
+
+[resource]
+render_priority = 100
+shader = ExtResource("1_8pnql")
+shader_parameter/funnel_axis = Vector3(0, 1, 0)
+shader_parameter/axis_origin = Vector3(0, 0, 0)
+shader_parameter/source_pos = -2.0
+shader_parameter/sink_pos = 2.0
+shader_parameter/source_radius = 1.0
+shader_parameter/sink_radius = 0.1
+shader_parameter/squeeze = 0.05
+shader_parameter/pull_power = 0.0
+shader_parameter/twist = 0.005
+shader_parameter/spin_speed = 1e-06
+shader_parameter/flow_speed = 0.0
+shader_parameter/flow_freq = 0.0
+shader_parameter/flow_amount = 0.0
+shader_parameter/smear = 20.0
+shader_parameter/edge_softness = 1.0
