@@ -8,8 +8,8 @@ enum StaminaState { USE, COMPLETE_REGEN }
 @export var player_id: GameManager.PlayerId = GameManager.PlayerId.PLAYER_1
 @onready var device_id: int = ControllerRegistry.get_controller_id(player_id)
 
-@export var max_stamina = 100
-@export var stamina_regeneration = 33
+@export var max_stamina = 30
+@export var stamina_regeneration = 12
 @export var stamina_depletion = 10
 @export var capture_duration: float = 0.35
 
@@ -111,12 +111,13 @@ func _process(delta: float) -> void:
 	
 	var has_input: bool = input.length_squared() > 0.0
 	
-	if is_stunned and fresh_stun:
-		fresh_stun = false
-		animations.play("Player/Death_A", 0.2)
+	if is_stunned:
+		if fresh_stun:
+			fresh_stun = false
+			animations.play("Player/Death_A", -1)
 	elif has_input:
 		animations.play("Player/Running_B", 0.5)
-	elif not is_stunned:
+	else:
 		animations.play("Player/Idle_B", 0.5)
 
 func _physics_process(delta: float) -> void:

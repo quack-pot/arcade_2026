@@ -10,7 +10,7 @@ extends CharacterBody3D
 ##   ├─ (mesh / model)
 ##   └─ AvoidPlayersBehavior (or any GhostBehavior subclass)
 
-@export var move_speed: float = 3.0
+@export var move_speed: float = 4.0
 @export var turn_speed: float = 8.0
 ## Players are found through this group unless a provider is set.
 @export var player_group: StringName = &"players"
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		_fall(delta)
 		return
 	
-	if not _nav_ready:
+	if not _nav_ready or is_captured:
 		return
 	
 	behavior.physics_update(delta)

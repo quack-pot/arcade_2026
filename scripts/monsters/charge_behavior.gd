@@ -8,21 +8,21 @@ signal state_changed(new_state: State)
 enum State { WANDER, CHARGE, RECOVER }
 
 @export_group("Wander")
-@export var wander_time_min: float = 6.0
-@export var wander_time_max: float = 10.0
-@export var wander_min_distance: float = 4.0
+@export var wander_time_min: float = 3.0
+@export var wander_time_max: float = 6.0
+@export var wander_min_distance: float = 8.0
 @export var wander_max_distance: float = 12.0
 
 @export_group("Charge")
 ## Multiplies the ghost's move_speed while charging.
-@export var charge_speed_multiplier: float = 1.8
+@export var charge_speed_multiplier: float = 2.1
 ## How often the path to the (moving) player is refreshed.
 @export var charge_repath_interval: float = 0.15
 ## Flat (XZ) distance at which the charge counts as contact.
 @export var contact_distance: float = 1.275
 ## Gives up and goes back to wandering if contact isn't made in this long.
 @export var charge_timeout: float = 8.0
-@export var stun_duration: float = 3.0
+@export var stun_duration: float = 2.5
 
 @export_group("Recover")
 ## The ghost stands still for this long after a hit, so it can't stun-lock.

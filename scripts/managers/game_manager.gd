@@ -4,7 +4,7 @@ extends Node
 signal play_started
 signal play_ended
 
-@export var game_play_time: float = 30
+@export var game_play_time: float = 45
 @export var game_delay_time: float = 5
 @export var game_summary_time: float = 5
 @export var game_fade_out_time: float = 2
@@ -32,8 +32,8 @@ var state: GameState = GameState.DELAY
 
 @onready var camera: Camera3D = $Camera3D
 
-@export var spawn_time: float = 2.5
-@export var initial_spawn_count: int = 4
+@export var spawn_time: float = 1.5
+@export var initial_spawn_count: int = 6
 @onready var spawn_timer: float = spawn_time * initial_spawn_count
 
 const MONSTERS: Array[PackedScene] = [
@@ -42,6 +42,11 @@ const MONSTERS: Array[PackedScene] = [
 	preload("res://entities/monsters/skull.scn"),
 	preload("res://entities/monsters/spectre.scn")
 ]
+
+func _ready() -> void:
+	var time_text: String = "Time: %ds" % int(game_play_time)
+	p1_time_text.text = time_text
+	p2_time_text.text = time_text
 
 func spawn_ghost(scene: PackedScene) -> Ghost:
 	var ghost := scene.instantiate() as Ghost

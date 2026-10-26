@@ -11,7 +11,7 @@ signal fired
 
 @export_group("Kiting")
 ## Ideal distance from each player.
-@export var preferred_distance: float = 9.0
+@export var preferred_distance: float = 12.0
 ## No penalty while within preferred_distance +/- this.
 @export var tolerance: float = 2.0
 ## Being too close is worse than being too far.
@@ -25,12 +25,12 @@ signal fired
 
 @export_group("Shooting")
 @export var fireball_scene: PackedScene
-@export var fire_interval_min: float = 2.0
-@export var fire_interval_max: float = 3.5
+@export var fire_interval_min: float = 1.0
+@export var fire_interval_max: float = 1.5
 ## Only throws at players closer than this.
 @export var shoot_range: float = 20.0
 ## Stands still and faces the target this long before throwing.
-@export var windup_time: float = 0.5
+@export var windup_time: float = 0.25
 @export var windup_turn_speed: float = 12.0
 @export var spawn_height: float = 0.8
 @export var spawn_forward_offset: float = 0.8

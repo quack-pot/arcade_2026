@@ -6,7 +6,7 @@ extends Area3D
 ## Collision mask must include the players' layer (and walls, if you want it to
 ## stop on them). Leave the ghosts' layer out of the mask.
 
-@export var speed: float = 9.0
+@export var speed: float = 10.0
 @export var lifetime: float = 4.0
 @export var stun_duration: float = 1.5
 
