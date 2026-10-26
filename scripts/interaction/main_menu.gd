@@ -19,7 +19,7 @@ var next_spawns: Array[Node3D] = []
 @onready var monster_spawn_timer: float = monster_spawn_time - monster_spawn_delay
 
 @onready var has_player_1_id: bool = ControllerRegistry.get_controller_id(GameManager.PlayerId.PLAYER_1) != -1
-@onready var has_player_2_id: bool = true or ControllerRegistry.get_controller_id(GameManager.PlayerId.PLAYER_2) != -1
+@onready var has_player_2_id: bool = ControllerRegistry.get_controller_id(GameManager.PlayerId.PLAYER_2) != -1
 
 func _update_prompt_text() -> void:
 	if not has_player_1_id:
