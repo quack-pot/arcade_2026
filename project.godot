@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 [autoload]
 
 HighScoreManager="*uid://cw5b11hvws6pj"
+ControllerRegistry="*uid://c0ugkeiqabc04"
 
 [display]
 
@@ -30,6 +31,11 @@ enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+players=""
+nav_groups=""
 
 [input]
 
