@@ -6,6 +6,12 @@
 [ext_resource type="Script" uid="uid://cxf6u8s6g25gx" path="res://scripts/utility/emergency_exit.gd" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cxiya66lsoghx" path="res://assets/KayKit_Dungeon/Models/dungeon_texture.png" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cuu0omfpuhsp8" path="res://entities/player.scn" id="5_iywne"]
+[ext_resource type="FontFile" uid="uid://pnb0qjsdtsy6" path="res://assets/fonts/DemonPanic-8OMmn.ttf" id="7_u5sy4"]
+[ext_resource type="FontFile" uid="uid://1ceibcohsa1d" path="res://assets/fonts/PHANTOM.ttf" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://ckr43yw35dydm" path="res://assets/monsters/Portraits/Skull.png" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://db5u0gtwbyirs" path="res://assets/monsters/Portraits/Demon.png" id="10_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://dvx5fqmpnh0h5" path="res://assets/monsters/Portraits/Spectre.png" id="11_dinhu"]
+[ext_resource type="Texture2D" uid="uid://cpb84uwypdti1" path="res://assets/monsters/Portraits/Cyclops.png" id="12_dinhu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0i1a5"]
 resource_name = "texture"
@@ -106,6 +112,67 @@ bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
 bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "countdown"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.9, 2.9, 3.9, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1", "Go!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9, 2, 2.6, 2.9, 3, 3.6, 3.9, 4, 4.6, 4.9, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gee14"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"countdown": SubResource("Animation_u5sy4")
+}
 
 [sub_resource type="Animation" id="Animation_te562"]
 length = 0.001
@@ -244,7 +311,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="P1" type="PanelContainer" parent="Control" unique_id=893629242]
+[node name="P2" type="PanelContainer" parent="Control" unique_id=893629242]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -252,39 +319,42 @@ offset_right = 32.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/P1" unique_id=1612658798]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/P2" unique_id=1612658798]
 custom_maximum_size = Vector2(32, -1)
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/P1/VBoxContainer" unique_id=365548768]
+[node name="Label" type="Label" parent="Control/P2/VBoxContainer" unique_id=365548768]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = 1.5707964
+theme_override_colors/font_color = Color(0.1254902, 0.07450981, 0.15686275, 1)
 text = "Score: 0"
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/P1/VBoxContainer" unique_id=611275519]
+[node name="Label2" type="Label" parent="Control/P2/VBoxContainer" unique_id=611275519]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = 1.5707964
+theme_override_colors/font_color = Color(0.09411765, 0, 0.6784314, 1)
 text = "Player 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Control/P1/VBoxContainer" unique_id=114981527]
+[node name="Label3" type="Label" parent="Control/P2/VBoxContainer" unique_id=114981527]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = 1.5707964
-text = "Time: 0"
+theme_override_colors/font_color = Color(0.1254902, 0.07450981, 0.15686275, 1)
+text = "Time: 30s"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="P2" type="PanelContainer" parent="Control" unique_id=1691171585]
+[node name="P1" type="PanelContainer" parent="Control" unique_id=1691171585]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -295,40 +365,230 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/P2" unique_id=1999780316]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/P1" unique_id=1999780316]
 custom_maximum_size = Vector2(32, -1)
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/P2/VBoxContainer" unique_id=170041173]
+[node name="Label" type="Label" parent="Control/P1/VBoxContainer" unique_id=170041173]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = -1.5707964
+theme_override_colors/font_color = Color(0.1254902, 0.07450981, 0.15686275, 1)
 text = "Score: 0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Control/P2/VBoxContainer" unique_id=996528296]
+[node name="Label2" type="Label" parent="Control/P1/VBoxContainer" unique_id=996528296]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = -1.5707964
+theme_override_colors/font_color = Color(0.5254902, 0.019607844, 0.019607844, 1)
 text = "Player 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="Control/P2/VBoxContainer" unique_id=454355222]
+[node name="Label3" type="Label" parent="Control/P1/VBoxContainer" unique_id=454355222]
 layout_mode = 2
 size_flags_vertical = 6
 offset_transform_enabled = true
 offset_transform_rotation = -1.5707964
-text = "Time: 0"
+theme_override_colors/font_color = Color(0.1254902, 0.07450981, 0.15686275, 1)
+text = "Time: 30s"
+vertical_alignment = 1
+
+[node name="Countdown" type="Control" parent="Control" unique_id=1164434925]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/Countdown" unique_id=1230465489]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 0.68235296, 0.48235294, 1)
+theme_override_colors/font_shadow_color = Color(0.88235295, 0.42352942, 0.1882353, 0.23137255)
+theme_override_colors/font_outline_color = Color(0.88235295, 0.42352942, 0.1882353, 1)
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 128
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Countdown" unique_id=921313344]
+libraries/ = SubResource("AnimationLibrary_gee14")
+autoplay = &"countdown"
+
+[node name="Results" type="Control" parent="Control" unique_id=1023913348]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Results" unique_id=1910569233]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -40.5
+offset_right = 71.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Highscore" type="Label" parent="Control/Results/VBoxContainer" unique_id=1806661074]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_colors/font_outline_color = Color(0.1254902, 0.07058824, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 26
+text = "High Score: 12,000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResultText" type="Label" parent="Control/Results/VBoxContainer" unique_id=1065047944]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.68235296, 0.48235294, 1)
+theme_override_colors/font_shadow_color = Color(0.88235295, 0.42352942, 0.1882353, 0.23137255)
+theme_override_colors/font_outline_color = Color(0.88235295, 0.42352942, 0.1882353, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 30
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 112
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerStatus" type="Label" parent="Control/Results/VBoxContainer" unique_id=1324735597]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.21960784, 0.7137255, 1, 1)
+theme_override_colors/font_outline_color = Color(0.09411765, 0, 0.6784314, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 26
+text = "Player 2 Wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Results/VBoxContainer" unique_id=108321371]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Results/VBoxContainer/HBoxContainer" unique_id=139770609]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2096826121]
+layout_mode = 2
+texture = ExtResource("9_0tnpc")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Highscore" type="Label" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2074013523]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_colors/font_outline_color = Color(0.1254902, 0.07058824, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 18
+text = "Ghostie            "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/Results/VBoxContainer/HBoxContainer" unique_id=16366914]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=393347474]
+layout_mode = 2
+texture = ExtResource("10_kvpfn")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Highscore" type="Label" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=217674802]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_colors/font_outline_color = Color(0.1254902, 0.07058824, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 18
+text = "Fireball Killer     "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Control/Results/VBoxContainer/HBoxContainer" unique_id=437809550]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1756860419]
+layout_mode = 2
+texture = ExtResource("11_dinhu")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Highscore" type="Label" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=194497274]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_colors/font_outline_color = Color(0.1254902, 0.07058824, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 18
+text = "Fire Ghost        "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Control/Results/VBoxContainer/HBoxContainer" unique_id=247444113]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1980240183]
+layout_mode = 2
+texture = ExtResource("12_dinhu")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Highscore" type="Label" parent="Control/Results/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=467171388]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+theme_override_colors/font_outline_color = Color(0.1254902, 0.07058824, 0.16862746, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 18
+text = "Spikelorn-Peter"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FadeRect" type="ColorRect" parent="Control" unique_id=314149606]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
