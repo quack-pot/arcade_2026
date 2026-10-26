@@ -32,7 +32,7 @@ var state: GameState = GameState.DELAY
 
 @onready var camera: Camera3D = $Camera3D
 
-@export var spawn_time: float = 1.5
+@export var spawn_time: float = 1.75
 @export var initial_spawn_count: int = 6
 @onready var spawn_timer: float = spawn_time * initial_spawn_count
 

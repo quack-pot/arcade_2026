@@ -8,7 +8,7 @@ signal state_changed(new_state: State)
 enum State { WANDER, CHARGE, RECOVER }
 
 @export_group("Wander")
-@export var wander_time_min: float = 3.0
+@export var wander_time_min: float = 4.0
 @export var wander_time_max: float = 6.0
 @export var wander_min_distance: float = 8.0
 @export var wander_max_distance: float = 12.0

@@ -122,6 +122,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if disabled or is_stunned:
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
 		return
 	
 	var has_input: bool = input.length_squared() > 0.0
