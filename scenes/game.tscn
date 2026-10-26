@@ -101,6 +101,12 @@ geometry_source_group_name = &"nav_groups"
 region_min_size = 7.0
 filter_baking_aabb = AABB(-22, 0, -14, 44, 5, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.8509804, 0.8509804, 0.8509804, 1)
+
 [sub_resource type="Animation" id="Animation_te562"]
 length = 0.001
 tracks/0/type = "value"
@@ -238,7 +244,91 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="P1" type="PanelContainer" parent="Control" unique_id=893629242]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 32.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/P1" unique_id=1612658798]
+custom_maximum_size = Vector2(32, -1)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/P1/VBoxContainer" unique_id=365548768]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = 1.5707964
+text = "Score: 0"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/P1/VBoxContainer" unique_id=611275519]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = 1.5707964
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/P1/VBoxContainer" unique_id=114981527]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = 1.5707964
+text = "Time: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="P2" type="PanelContainer" parent="Control" unique_id=1691171585]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5sy4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/P2" unique_id=1999780316]
+custom_maximum_size = Vector2(32, -1)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/P2/VBoxContainer" unique_id=170041173]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = -1.5707964
+text = "Score: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/P2/VBoxContainer" unique_id=996528296]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = -1.5707964
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/P2/VBoxContainer" unique_id=454355222]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_rotation = -1.5707964
+text = "Time: 0"
+vertical_alignment = 1
+
 [node name="FadeRect" type="ColorRect" parent="Control" unique_id=314149606]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
